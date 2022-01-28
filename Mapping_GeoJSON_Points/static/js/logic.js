@@ -37,14 +37,24 @@ streets.addTo(map);
   ]};
 
 // Grabbing our GeoJSON data.
-L.geoJSON(sanFranAirport).addTo(map);
+// L.geoJSON(sanFranAirport).addTo(map);
 
 
-// Grabbing our GeoJSON data.
+// // // Grabbing our GeoJSON data, use pointToLayer to add markers and bind popup
+// L.geoJSON(sanFranAirport,{
+//   pointToLayer: function(feature, latlng) {
+//     console.log(feature);
+//     return L.marker(latlng)
+//     .bindPopup("<h2>" + feature.properties.name + "</h2><hr><p>" 
+//     + feature.properties.city + ", " + feature.properties.country + "</p>");
+//   }
+// }).addTo(map);
+
+// // Grabbing our GeoJSON data, use onEachFeature to add markers and bind popup
 L.geoJSON(sanFranAirport,{
-  pointToLayer: function(feature, latlng) {
-    return L.marker(latlng)
-    .bindPopup("<h2>" + feature.properties.city + "</h2>");
+  onEachFeature: function(feature, layer) {
+    console.log(layer);
+    layer.bindPopup("<h2>" + feature.properties.name + "</h2><hr><p>" 
+    + feature.properties.city + ", " + feature.properties.country + "</p>");
   }
 }).addTo(map);
-
