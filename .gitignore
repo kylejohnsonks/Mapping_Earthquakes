@@ -125,3 +125,4 @@ Mapping_Lines/static/js/config.js
 Mapping_GeoJSON_Points/static/js/config.js
 Mapping_GeoJSON_MultiplePoints/static/js/config.js
 Mapping_GeoJSON_Linestrings/config.js
+Mapping_GeoJSON_Polygons/static/js/config.js
